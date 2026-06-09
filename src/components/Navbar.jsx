@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Navbar = () => {
     return (
-        <nav className='bg-amber-500'>
+        <nav className='bg-amber-400'>
             <div className="container">
                 <div className='flex items-center justify-between py-10 '>
                     <div>
