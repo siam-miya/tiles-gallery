@@ -1,8 +1,21 @@
-
+"use client"
+import { Avatar, Button, Spinner } from '@heroui/react'
 import NavLinks from './NavLinks'
 import Link from 'next/link'
+import { authClient } from '@/lib/auth-client'
+import { toast } from 'react-toastify'
 
 const Navbar = () => {
+    const userData = authClient.useSession()
+    console.log(userData)
+    const user = userData.data?.user
+    console.log(user)
+    const handleLogout = async () => {
+        await authClient.signOut();
+        toast.success("LogOut Successfull!!")
+
+    }
+
     return (
         <nav className='bg-amber-400'>
             <div className="container">
@@ -15,12 +28,24 @@ const Navbar = () => {
                         <NavLinks href={"/all-tiles"}>All Tiles</NavLinks>
                         <NavLinks href={"/profile"}>My Profile</NavLinks>
                     </ul>
-                    <div>
+
+                    {!user && <div>
                         <ul className='flex items-center gap-4'>
                             <NavLinks href={"/login"}>Login</NavLinks>
                             <NavLinks href={"/register"}>Register</NavLinks>
                         </ul>
-                    </div>
+                    </div>}
+                    { user && <div className='flex items-center gap-5'>
+                        <div>
+                            <Avatar>
+                                <Avatar.Image alt={user?.name} src={user?.image} />
+                                <Avatar.Fallback>{user?.name}</Avatar.Fallback>
+                            </Avatar>
+                        </div>
+                        <div>
+                            <Button onClick={handleLogout}>LogOut</Button>
+                        </div>
+                    </div>}
                 </div>
             </div>
         </nav>
