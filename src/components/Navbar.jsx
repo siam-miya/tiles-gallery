@@ -1,4 +1,4 @@
-import React from 'react'
+
 import NavLinks from './NavLinks'
 import Link from 'next/link'
 
@@ -11,8 +11,9 @@ const Navbar = () => {
                         <Link href={"/"}><h1 className='font-light text-3xl cursor-pointer'>Tiles Gallery</h1></Link>
                     </div>
                     <ul className='flex items-center gap-6'>
+                        <NavLinks href={"/"}>Home</NavLinks>
                         <NavLinks href={"/all-tiles"}>All Tiles</NavLinks>
-                        <NavLinks href={"/profile"}>Profile</NavLinks>
+                        <NavLinks href={"/profile"}>My Profile</NavLinks>
                     </ul>
                     <div>
                         <ul className='flex items-center gap-4'>
