@@ -7,8 +7,8 @@ const All_Tiles = async () => {
     console.log(tilesData)
   return (
  <div className='container'>
-  <h2 className='font-bold text-2xl'>All Tiles Gallery</h2>
-     <div className='grid grid-cols-4 gap-5'>
+  <h2 className='font-bold text-2xl pt-10'>All Tiles Gallery</h2>
+     <div className='grid grid-cols-4 gap-5 pt-6 pb-10'>
       {
         tilesData.map((tiles) => <TilesCard key={tiles.id} tiles={tiles}/>)
       }

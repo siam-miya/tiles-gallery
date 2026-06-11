@@ -1,5 +1,5 @@
 "use client"
-import { Avatar, Button, Spinner } from '@heroui/react'
+import { Avatar, Button } from '@heroui/react'
 import NavLinks from './NavLinks'
 import Link from 'next/link'
 import { authClient } from '@/lib/auth-client'
@@ -36,6 +36,9 @@ const Navbar = () => {
                         </ul>
                     </div>}
                     { user && <div className='flex items-center gap-5'>
+                        <div>
+                        <h2>{`welcome: ${user.name}`}</h2>
+                        </div>
                         <div>
                             <Avatar>
                                 <Avatar.Image alt={user?.name} src={user?.image} />
