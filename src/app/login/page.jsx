@@ -1,6 +1,7 @@
 "use client"
 import { authClient } from "@/lib/auth-client";
 import { Button, Checkbox, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import Link from "next/link";
 import { FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
 
@@ -83,14 +84,15 @@ const Login = () => {
             <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
             <FieldError />
           </TextField>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             <Button type="submit">
               <Checkbox />
-              Submit
+              Login
             </Button>
             <Button type="reset" variant="secondary">
               Reset
             </Button>
+            <h1>I have no Account, <Link href={"/register"} className="text-amber-400 font-medium">Register</Link></h1>
           </div>
           <Button onClick={handleSignIn} className={"w-full"}><FaGoogle />SignUp With Google</Button>
         </Form>

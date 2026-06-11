@@ -42,7 +42,7 @@ const Navbar = () => {
                         <div>
                             <Avatar>
                                 <Avatar.Image alt={user?.name} src={user?.image} />
-                                <Avatar.Fallback>{user?.name}</Avatar.Fallback>
+                                <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
                             </Avatar>
                         </div>
                         <div>
